@@ -1,0 +1,21 @@
+version: '3'
+services:
+    node:
+        build: .docker
+        restart: always
+        volumes:
+            - .:/usr/src/app
+        ports:
+            - 8080:8080
+        command: npm start
+        depends_on:
+            - db
+    db:
+        image: mongo:3.4
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: ${DB_USER} 
+            MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWD}
+        ports:
+            - 27017:27017
+
