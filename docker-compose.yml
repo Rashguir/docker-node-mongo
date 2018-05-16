@@ -1,7 +1,7 @@
 version: '3'
 services:
     node:
-        build: .docker
+        build: .
         restart: always
         volumes:
             - .:/usr/src/app
