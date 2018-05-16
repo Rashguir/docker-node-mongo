@@ -2,9 +2,10 @@ version: '3'
 services:
     node:
         build: .
-        restart: always
+#        restart: always
         volumes:
             - .:/usr/src/app
+            - /usr/src/app/node_modules
         ports:
             - 8080:8080
         command: npm start
