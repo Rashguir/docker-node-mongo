@@ -4,9 +4,6 @@
   "description": "Node.js on Docker with MongoDB",
   "author": "First Last <first.last@example.com>",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
   "dependencies": {
     "express": "^4.16.1"
   }
