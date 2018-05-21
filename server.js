@@ -1,17 +1,20 @@
 'use strict';
 
-const express = require('express');
-
-// Constants
 const PORT = 8080;
-// const HOST = '127.0.0.1';
 
-// App
-const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello world\n');
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(PORT);
-console.log(`Running on http://localhost:${PORT}`);
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
+http.listen(PORT, function(){
+  console.log('listening on *:8080');
+});
 
